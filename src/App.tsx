@@ -2,7 +2,6 @@ import React, { FC, useEffect, useRef, useState } from "react";
 import { data as AllSongs } from "./songData";
 import AudioPlayer from "./components/AudioPlayer";
 import { SongData, CurrentSongType } from "./DataTypes";
-
 import "./App.css";
 
 const App: FC = () => {
@@ -58,6 +57,7 @@ const App: FC = () => {
         onTimeUpdate={onPlaying}
         muted={isMute}
       />
+
       <AudioPlayer
         songs={songs}
         setSongs={setSongs}

@@ -1,8 +1,4 @@
 import React, { FC, useRef } from "react";
-import {
-  SpectrumVisualizer,
-  SpectrumVisualizerTheme,
-} from "react-audio-visualizers";
 import { CurrentSongType, SongData } from "../DataTypes";
 import {
   BsFillPlayCircleFill,
@@ -13,6 +9,7 @@ import {
 import { FcSpeaker } from "react-icons/fc";
 import { GiSpeakerOff } from "react-icons/gi";
 import "./player.css";
+import TempPlayer from "./TempPlayer";
 
 interface Props {
   songs: SongData[];
@@ -102,15 +99,7 @@ const AudioPlayer: FC<Props> = ({
         <p>{currentSong.song.name}</p>
       </div>
       <div className="waveform_display">
-        <SpectrumVisualizer
-          audio={currentSong.song.link}
-          theme={SpectrumVisualizerTheme.line}
-          colors={["#388ae2", "#388ae2"]}
-          iconsColor="#388ae2"
-          backgroundColor="white"
-          showMainActionIcon
-          highFrequency={8000}
-        />
+        <TempPlayer src={currentSong.song.link} isPlaying={isPlaying} />
       </div>
       <div className="main_controls">
         <div className="controls">
