@@ -1,84 +1,36 @@
-.player_container{
-    width: 50%;
-    height: 50%;
-    padding: 1rem;
-    border: 1px solid rgb(141, 141, 141);
-    border-radius: 10px;
-    color: rgb(218, 218, 218);
+
+.current_time{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    background-color: fff;
+    margin:0px 5px;
+    color: #388ae2;
+    width: 50px;
+    
+}
+.total_duration{
+    display: flex;
+    align-items: center;
+    margin:0px 5px;
     color: #388ae2;
 }
-
-.player_container .title{
-    font-size: inherit;
-}
-.player_container .main_controls{
+.wave_container{
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    text-align: center;
+    align-items: center;
 }
-.player_container .main_controls .controls{
-    width: 20%;
-    justify-content: space-between;
-}
-.player_container .main_controls .controls .btn_action{
-    width: 20px;
-    height: 20px;
-    margin-left: 2px;
-    margin-bottom: 2px;
-}
-.player_container .main_controls .controls .pp{
-    width: 25px;
-    height: 25px;
-    margin-left: 4px;
-    margin-right: 2px;
-}
-.player_container .main_controls .navigation{
-    width: 60%;
-}
-.player_container .main_controls .navigation .duration{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    margin-top: -5px;
-    margin-bottom: 2px;
+.pp{
+    width: 50px;
+    height: 50px;
+    color: #388ae2;
+    border-radius: 50%;
+    box-shadow: 6px 6px 6px 1px rgba(0, 0, 255, .2);
+    
 }
 
-.player_container .main_controls .navigation .duration p{
-    font-size: 12px;
-}
-.player_container .main_controls .navigation .duration .total_duration{
-    margin-left: 87%;
-}
-.player_container .main_controls .navigation .navigation_wrapper{
-    background-color: rgba(119, 119, 119, 0.781);
-    height: 5px;
-    border-radius: 30px;
-    cursor: pointer;
-}
-.player_container .main_controls .navigation .navigation_wrapper .seek_bar{
-    width: 0;
-    height: 100%;
-    background-color: #388ae2;
-    border-radius: 30px;
-}
 
-.player_container .main_controls .volume_control{
-    width: 20%;
-    text-align: center;
-}
-.player_container .main_controls .volume_control .vol_btn_action{
-    width: 25px;
-    height: 25px;
-}
-.player_container .main_controls .volume_control #volume{
+#volume{
     width: 75px;
     height: 25px;
+    padding: 10px 20px;
 }
 
     

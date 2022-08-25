@@ -1,14 +1,28 @@
 import React, { FC, useEffect, useRef } from "react";
 import WaveSurfer from "wavesurfer.js";
+import "./player.css";
 
 interface Props {
   src: string;
   isPlaying: boolean;
+  volume: number;
+  setDuration: React.Dispatch<React.SetStateAction<number>>;
+  setElapsed: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const TempPlayer: FC<Props> = ({ src, isPlaying }) => {
+const Waveform: FC<Props> = ({
+  src,
+  isPlaying,
+  volume,
+  setDuration,
+  setElapsed,
+}) => {
   const waveform = useRef<any>();
+
   useEffect(() => {
+    if (waveform.current) {
+      waveform.current.setVolume(volume / 100);
+    }
     if (!waveform.current) {
       waveform.current = WaveSurfer.create({
         container: "#waveform",
@@ -19,19 +33,31 @@ const TempPlayer: FC<Props> = ({ src, isPlaying }) => {
         cursorWidth: 3,
         progressColor: "#567FFF",
         cursorColor: "#567FFF",
+        scrollParent: false,
       });
-
       waveform.current.load(src);
+      waveform.current.on("ready", () => {
+        setDuration(waveform.current.getDuration());
+      });
+      waveform.current.on("audioprocess", () => {
+        setElapsed(waveform.current.getCurrentTime());
+      });
     }
     if (isPlaying) {
       waveform.current.pause();
     } else if (!isPlaying) {
       waveform.current.play();
     }
-  }, [src, isPlaying]);
+  }, [src, isPlaying, volume]);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "fit-content",
+      }}
+    >
       <div id="waveform" />
       <div
         style={{
@@ -45,4 +71,4 @@ const TempPlayer: FC<Props> = ({ src, isPlaying }) => {
   );
 };
 
-export default TempPlayer;
+export default Waveform;

@@ -1,10 +1,5 @@
 export interface SongData {
   name: string;
+  singer: string;
   link: string;
-}
-
-export interface CurrentSongType {
-  song: SongData;
-  progress: number;
-  length: number;
 }
